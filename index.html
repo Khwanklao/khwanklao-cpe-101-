@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPE101</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            overflow-x: hidden; 
+        }
+
+        header {
+            
+            background-color: gray;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: padding 0.3s ease;
+        }
+
+        header a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 20px 120px;
+            text-decoration: none;
+        }
+
+        header.sticky {
+            padding: 5px 100px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header a:hover {
+        color: yellow;
+        transform: scale(1.1); 
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); 
+        }
+
+        header a:active {
+        transform: scale(0.95); 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+        }
+
+        .main-content {
+            flex: 1; 
+            margin-top: 100px;
+        }
+
+        .container,.right container {
+            display: flex;
+            margin: 20px;
+            width: calc(100% - 40px);
+            height: auto;
+            text-align: left;
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container h1 {
+            margin: 5px;
+            color: rgb(0, 0, 0);
+            font-size: 36px;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ddff00, 0 0 30px #95ff00, 0 0 40px #d0ff00, 0 0 50px #ffff00;
+        }
+
+        .second-box h2, .second-box p {
+            margin-top: 5px; 
+            position: relative;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: relative;
+        }
+
+
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+      
+     
+        section{
+            min-height: 100vh;
+            display: flex;
+            justify-content:center ;
+            align-items: center;
+            background: transparent;
+        }
+        .profile-image {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 5px solid white;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: auto;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        .proed {
+            width: 250px; 
+            height: 250px; 
+            border-radius: 50%; 
+            overflow: hidden;
+            border: 5px solid #fff; 
+            display: flex;
+            justify-content: center;
+            align-items: center;  
+        }
+
+         .proed img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; 
+        }
+
+         .proed-con{
+         display: flex;
+         flex-direction: column; 
+         align-items: center; 
+         margin: auto;
+        padding: 20px 40px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        font-size: 1.5em;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #00e6ff, 0 0 20px #00e6ff, 0 0 30px #00e6ff, 0 0 40px #00e6ff;
+        }
+
+        .proed-con h1 {
+        margin-top: 50px; 
+        font-size: 18px; 
+        color: white; 
+        }
+        
+        .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; 
+        margin: 20px;
+        }
+
+        .sidebar, .second-box {
+        flex: 1;
+        margin-right: 20px; 
+        }
+
+        .sidebar h2{
+        align-items: center;
+        color: #ffffff;
+        }
+
+        .sidebar p{
+        align-items:center;
+        color: #ffffff;
+        }
+
+        .container {
+        padding: 20px 40px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        font-size: 1.5em;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #00e6ff, 0 0 20px #00e6ff, 0 0 30px #00e6ff, 0 0 40px #00e6ff;
+        }
+
+        .image-container img {
+        width: 150px; 
+        height: 150px; 
+        border: 3px solid #555;
+        border-radius: 10px;
+        object-fit: cover; 
+        }
+
+        .contact {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;  
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        }
+
+        .card {
+        background: #555;
+        padding: 20px;
+        margin: 10px;
+        width: 300px; 
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        cursor: pointer;
+        border-radius: 10px; 
+        transition: transform 0.3s ease; 
+        }
+
+        .card:hover {
+        transform: scale(1.05); 
+        }
+
+        .card-icon {
+        font-size: 36px; 
+        background: yellow;
+        width: 70px;
+        height: 70px;
+        text-align: center;
+        line-height: 70px;
+        border-radius: 50%;
+        transition: 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+        background: none;
+        color: aqua;
+        transform: scale(1.2);
+        }
+
+        .card p {
+        margin-top: 15px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        max-height: 0; 
+        opacity: 0; 
+        transition: max-height 0.3s ease, opacity 0.3s ease; 
+        overflow: hidden; 
+        }
+
+        .card:hover p {
+        max-height: 40px;  
+        opacity: 1;  
+        }
+
+        @media screen and (max-width: 800px) {
+        .contact {
+        flex-direction: column;
+        }
+
+        .card {
+        width: 100%;  
+        max-width: 300px;
+        margin: 10px 0;
+        }
+        }
+
+        body {
+        background-image: url('pic/Robot.jpg');
+        background-size: auto; 
+        background-repeat: repeat;  
+        }
+
+        .skill h1{
+        text-align: center;
+        }
+
+        .skill h3{
+         margin: 5px;
+         }
+
+        .skill{
+        width: 500px;
+        margin: 60px auto;
+        color: rgb(251, 249, 249);
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.7), 0 6px 6px rgba(255, 255, 255, 0.5);
+        background-color: #555;
+        }
+
+        .skill li{
+        margin: 20px 0;
+        padding: 10px;
+        }
+
+        .bar{
+        background:#353b48;
+        display: block;
+        height: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12),10px 10px rgba(0, 0, 0, 0.24);
+        transition:all 0.3s cubic-bezier(.25,.8,.25,1) ;
+        }
+
+        li {
+        margin-bottom: 20px;
+        }
+
+        .bar {
+        display: block;
+        width: 100%;
+        background-color: #e0e0e0;
+        height: 30px;
+        border-radius: 5px;
+        overflow: hidden;
+        }
+
+        .bar span {
+        display: block;
+        height: 100%;
+        border-radius: 5px;
+        transition: width 2s ease-in-out;  
+        }
+
+        .html {
+        width: 10%;
+        background-color: #f06529;
+        animation: html 2s forwards;
+        }
+
+        .css {
+        width: 10%;
+        background-color: #2965f1;
+        animation: css 2s forwards;
+        }
+
+        .c {
+        width: 20%;
+        background-color: #555;
+        animation: c 2s forwards;
+        }
+
+        .math {
+        width: 30%;
+        background-color: #8a2be2;
+        animation: math 2s forwards;
+        }
+
+@keyframes html {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 10%;
+    }
+}
+
+@keyframes css {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 10%;
+    }
+}
+
+@keyframes c {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 20%;
+    }
+}
+
+@keyframes math {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 30%;
+    }
+}
+.second-box{
+    padding: 20px;
+}
+.proed{
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.proed:hover {
+    transform: scale(1.1);  
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+.hello{
+    white-space: nowrap;  
+    animation: flow 5s forwards;  
+}
+
+.hello h1{
+    white-space: nowrap;  
+    animation: flow 5s forwards;  
+}
+@keyframes flow {
+    0% {
+        transform: translateX(-100%);  
+    }
+    100% {
+        transform: translateX(0); 
+    }
+}
+.info-box {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+            color: white;
+            margin: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#Home">Home</a>
+        <a href="#About me">About me</a>
+        <a href="#Education">Education</a>
+        <a href="#Skill">Skill</a>
+        <a href="#Contact">Contact</a>
+    </header>
+            <section id="Home">
+                <div class="main-content">
+                    <div class="container">
+                        <div class="text-container">
+                            <h1 class="hello">Hello I'm Dos</h1>
+                            <h1 class="hello">WELCOME</h1>
+                            <h1 class="hello">TO MY WEBSITE</h1>
+                            <div class="profile-image">
+                                <img src="pic/Dos.jpg" alt="Profile Image"> 
+                            </div>
+                        </div>
+                        <div class="sidebar">
+                            <h2>This is HOME page</h2>
+                            <p>If you want to see more of my information, click the bar above !!</p>
+                            <p>-About me title is about my personal information</p>
+                            <p>-Education title ia about my educational record</p>
+                            <p>-Skill title is about what can i do expert</p>
+                            <p>-Contact title is about my contact channels</p>
+                        </div>
+                    </div>
+            </section>
+            <section id="About me">
+                <div class="container">
+                    <div class="info-box">
+                        <h2>PERSONAL INFORMATION</h2>
+                        <p>First and last name: Khwanklao Naknan</p>
+                        <p>Nickname: Dos</p>
+                        <p>Nationality: Thai</p>
+                        <p>Date / Month / Year of birth: 5 May 2006</p>
+                        <p>Address: Phuket</p>
+                        <p>Email: anak.123424@gmail.com</p>
+                        <p>Tel: 095428xxxx</p>
+                        <p>Number of siblings: 2 </p>
+
+                    </div>
+        
+                        <div class="info-box">
+                            <h2>LEISURE ACTIVITIES</h2>
+                            <p>- Jogging</p>
+                            <p>- Play SEPAKTAKRAW</p>
+                            <p>- Donate various items</p>
+                            <p>- Read a book</p>
+                            <p>- Play games</p>
+                            <p>- Listen to music</p>
+                            <p>- Watch a film</p>
+                            <p>- Plant a tree</p>
+                        </div>
+        
+                        <div class="image-container">
+                        <div class="img1"><img src="pic/run.jpg" alt="Running"></div>
+                        <div class="img3"> <img src="pic/ตระก้อ.jpg" alt="Takraw"></div>
+                        <div class="img2"> <img src="pic/บริจาค.jpg" alt="Donating"></div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </section>
+            <section id="Education">
+                <div class="proed-con">
+                    <div class="proed">
+                         <img src="pic/abpk.png" alt="">
+                    </div>
+                    <div class="text-pro">
+                        <a href="https://abpk.ac.th/frontpage"><h1>Anubanphuket School</h1></a>
+                        <h5> since 2012 to 2018</h5>
+                    </div>
+                </div> 
+            
+                <div class="proed-con"> 
+                    <div class="proed">
+                        <img src="pic/pkw.jpg" alt="">
+                    </div>
+                    <div class="text-pro">
+                        <a href="https://www.pkw.ac.th/pkw/index.php"><h1>Phuketwittayalai School</h1></a>
+                        <h5> since 2018 to 2024</h5>
+                    </div>
+                </div> 
+            
+                <div class="proed-con"> 
+                    <div class="proed">
+                        <img src="pic/kmutt.jpg" alt="">
+                    </div>
+                    <div class="text-pro">
+                        <a href="https://www.kmutt.ac.th/"><h1>KMUTT</h1></a>
+                        <h5>  2024 to present</h5>
+                    </div>
+                </div> 
+            </section>
+
+            <section id="Skill">
+                <div class="skill">
+                    <h1>MY SKILL</h1>
+            
+                    <li><h3>HTML</h3>
+                        <span class="bar"><span class="html"></span></span>
+                    </li>
+                    <li><h3>CSS</h3>
+                        <span class="bar"><span class="css"></span></span>
+                    </li>
+                    <li><h3>C</h3>
+                        <span class="bar"><span class="c"></span></span>
+                    </li>
+                    <li><h3>MATH</h3>
+                        <span class="bar"><span class="math"></span></span>
+                    </li>
+
+                </div>
+            </section>
+
+            <section id="Contact">
+                <div class="contact">
+
+                 <div class="card">
+                  <i class="card-icon far fa-envelope"></i>
+                  <p>anak.123424@gmail.com</p>
+                 </div>
+
+                 <div class="card">
+                    <i class="card-icon fas fa-phone"></i>
+                    <p>095428xxxx</p>
+                   </div>
+
+                   <div class="card">
+                    <a href="https://www.instagram.com/_rollmiro_/"><i class="card-icon fab fa-instagram"></i></a>
+                    <p>_rollmiro_</p>
+                   </div>
+
+                </div>
+            </section>
+    <footer>
+        <p>-- Hope you guys enjoy . Thank you --</p>
+    </footer>
+
+    <script>
+        window.addEventListener("scroll", function() {
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>

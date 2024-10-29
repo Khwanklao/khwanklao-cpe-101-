@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-shadow: 2px 2px 5px yellow;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    width: 100%;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+nav {
+    opacity: 50%;
+    background-color: gray;
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color:black;
+    text-align: center;
+    padding: 20px 120px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: black;
+    color: white;
+}
+
+.container {
+    display: flex; 
+    margin: 20px;
+    width: calc(100% - 40px);
+    height: calc(100vh - 120px);
+    position: absolute;
+    top: 70%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    text-align: left; 
+}
+
+.sidebar {
+    border-radius: 10px; 
+    opacity: 90%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 500px; 
+    height: 250px;
+    margin-left: 50px; 
+}
+.sidebar h2, .sidebar p {
+margin-top: 5px; /* ปรับระยะห่างด้านบนของข้อความ */
+}
+
+.right-container {
+    display: flex; /* ใช้ flexbox */
+    flex-direction: column; /* เรียงในแนวตั้ง */
+    margin-left: 100px; /* ระยะห่างจากกล่องข้อมูลส่วนตัว */
+}
+
+.second-box {
+    border-radius: 10px; 
+    opacity: 90%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 500px; /* ปรับความกว้าง */
+    height: 150px; /* ปรับความสูง */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+    margin-left: 100px;
+}
+.second-box h2, .second-box p {
+margin-top: 5px; /* ปรับระยะห่างด้านบนของข้อความ */
+}
+
+.image-container {
+    display: flex; /* จัดเรียงรูปภาพในแนวนอน */
+    justify-content: space-between; /* จัดให้มีระยะห่างระหว่างรูปภาพ */
+}
+
+.image-container img {
+    width: 150px; /* กำหนดความกว้างของรูป */
+    height: 150px; /* กำหนดความสูงของรูป */
+    border: 3px solid #555; /* กำหนดกรอบสีเทา */
+    border-radius: 10px; /* ทำให้มุมกรอบมีความโค้ง */
+    margin-left: 70px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 50px;
+}
